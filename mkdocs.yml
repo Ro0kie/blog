@@ -1,0 +1,14 @@
+site_name: roo00kie's coding blog
+
+theme: 
+  name: material
+  custom_dir: overrides
+  palette:
+    primary: indigo
+
+markdown_extensions:
+  - meta
+
+plugins:
+  - search:
+      lang: ja
