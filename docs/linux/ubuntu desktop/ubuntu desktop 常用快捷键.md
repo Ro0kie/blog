@@ -1,3 +1,8 @@
+---
+hide:
+  - toc        # Hide table of contents
+---
+
 Linux 中的 Super 键即键盘上带有 Windows 图标的键
 
 ​                  
