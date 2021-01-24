@@ -21,7 +21,7 @@ hide:
 
 <br>
 
-<div align=center>--《免责声明》<br></div>
+<div align=right>--《免责声明》</div>
 
 
 
