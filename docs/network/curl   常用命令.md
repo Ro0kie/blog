@@ -1,7 +1,3 @@
-yyyy
-
-
-
 ```shell
 -A	指定客户端的用户代理标头,即 User-Agent
 curl -A 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36' https://www.google.com
@@ -88,7 +84,8 @@ curl -F 'file=@photo.png;filename=me.png' https://google.com/profile
 curl -d'login=emma＆password=123'-X POST https://google.com/login
 curl -d 'login=emma' -d 'password=123' -X POST  https://google.com/login
 
-使用-d参数以后，HTTP 请求会自动加上标头Content-Type : application/x-www-form-urlencoded。并且会自动将请求转为 POST 方法，因此可以省略-X POST
+使用-d参数以后，HTTP 请求会自动加上标头Content-Type : application/x-www-form-urlencoded
+并且会自动将请求转为 POST 方法，因此可以省略-X POST
 
 -d	可以读取本地文本文件的数据，向服务器发送。
 curl -d '@data.txt' https://google.com/login
@@ -96,14 +93,14 @@ curl -d '@data.txt' https://google.com/login
 
 
 
-```
+```shell
 -L	让 HTTP 请求跟随服务器的重定向     curl 默认不跟随重定向
 curl -L -d 'tweet=hi' https://api.twitter.com/tweet
 ```
 
 
 
-```
+```shell
 -s	不显示统计信息
 curl -s ip.gs
 ```
