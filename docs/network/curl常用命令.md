@@ -1,7 +1,4 @@
----
-hide:
-  - toc        # Hide table of contents
----
+
 
 - ```shell
   -A	指定客户端的用户代理标头,即 User-Agent
