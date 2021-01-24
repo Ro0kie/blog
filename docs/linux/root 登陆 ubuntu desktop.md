@@ -1,3 +1,8 @@
+---
+hide:
+  - toc        # Hide table of contents
+---
+
 ubuntu desktop 用非 root 用户登陆的时候，小问题很多
 
 尤其是anaconda , 没法隔离环境，创建出一个环境test，结果conda install 还是装在base里面
