@@ -21,6 +21,8 @@ hide:
 
 <br>
 
+<div align=center>--《免责声明》<br></div>
+
 
 
 <div align=center><img src="img\home_page.jpg" alt="home_page" style="zoom:50%;" />
