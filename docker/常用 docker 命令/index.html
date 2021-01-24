@@ -14,7 +14,7 @@
     
     
       
-        <title>Ttt - roo00kie's coding blog</title>
+        <title>常用 docker 命令 - roo00kie's coding blog</title>
       
     
     
@@ -89,7 +89,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Ttt
+              常用 docker 命令
             
           </span>
         </div>
@@ -140,6 +140,8 @@
           
             
               
+                
+              
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -184,12 +186,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
       
       <label class="md-nav__link" for="nav-2">
         Docker
@@ -206,11 +210,18 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../docker/%E5%B8%B8%E7%94%A8%20docker%20%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         常用 docker 命令
       </a>
+      
     </li>
   
 
@@ -228,14 +239,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
       
       <label class="md-nav__link" for="nav-3">
         Java
@@ -254,7 +263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ddd/" class="md-nav__link">
+      <a href="../../java/ddd/" class="md-nav__link">
         Ddd
       </a>
     </li>
@@ -266,7 +275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rrrr/" class="md-nav__link">
+      <a href="../../java/rrrr/" class="md-nav__link">
         Rrrr
       </a>
     </li>
@@ -276,18 +285,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../java/ttt/" class="md-nav__link">
         Ttt
       </a>
-      
     </li>
   
 
@@ -479,9 +481,29 @@
               
                 
                 
-                  <h1>Ttt</h1>
+                  <h1>常用 docker 命令</h1>
                 
-                <p>fdgdfgdfgvfdvdfdf高低代</p>
+                <pre><code class="language-shell">#换源
+
+FROM alpine
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+
+FROM ubuntu
+RUN  sed -i s@/security.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list\
+    &amp;&amp;sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+
+#列出虚悬镜像
+docker image ls -f dangling=true
+
+#虚悬镜像已经失去了存在的价值，是可以随意删除的
+docker image prune
+
+#这个例子中演示了如何换行，以及对含有空格的值用双引号括起来的办法，这和 Shell 下的行为是一致的
+ENV VERSION=1.0 DEBUG=on \
+    NAME=&quot;Happy Feet&quot;
+</code></pre>
+                
+                  
                 
               
               
