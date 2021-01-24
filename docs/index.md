@@ -19,11 +19,11 @@ hide:
 
 <br>
 
+<div align=right>----《免责声明》</div>
+
 <br>
 
-<div align=right>--《免责声明》</div>
-
-
+<br>
 
 <div align=center><img src="img\home_page.jpg" alt="home_page" style="zoom:50%;" />
 </div>
