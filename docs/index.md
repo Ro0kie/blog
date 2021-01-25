@@ -17,8 +17,6 @@ hide:
 
 <br>
 
-<br>
-
 <div align=right>----《免责声明》</div>
 
 <br>
