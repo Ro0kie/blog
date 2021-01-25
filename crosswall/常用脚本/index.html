@@ -14,7 +14,7 @@
     
     
       
-        <title>常用 curl 命令 - roo00kie's coding blog</title>
+        <title>常用脚本 - roo00kie's coding blog</title>
       
     
     
@@ -89,7 +89,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              常用 curl 命令
+              常用脚本
             
           </span>
         </div>
@@ -184,12 +184,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
       
       <label class="md-nav__link" for="nav-2">
         Crosswall
@@ -206,11 +208,18 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../crosswall/%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         常用脚本
       </a>
+      
     </li>
   
 
@@ -464,14 +473,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
       
       <label class="md-nav__link" for="nav-6">
         Network
@@ -488,18 +495,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../network/%E5%B8%B8%E7%94%A8%20curl%20%E5%91%BD%E4%BB%A4/" class="md-nav__link">
         常用 curl 命令
       </a>
-      
     </li>
   
 
@@ -523,68 +523,53 @@
               
                 
                 
-                  <h1>常用 curl 命令</h1>
+                  <h1>常用脚本</h1>
                 
-                <pre><code class="language-shell">-A  指定客户端的用户代理标头,即 User-Agent
-curl -A 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36' https://www.google.com
-</code></pre>
-<pre><code class="language-shell">-b  向服务器发送 Cookie
-curl -b 'foo1=bar;foo2=bar2' https://www.google.com
-curl -b cookies.txt https://www.google.com
-</code></pre>
-<pre><code class="language-shell">-X(大写)  指定 HTTP 请求的方法
-curl -X POST https://www.example.com
+                <pre><code class="language-shell">wget --no-check-certificate -O server_dd.sh https://git.io/server_dd.sh &amp;&amp; bash server_dd.sh
 
--x(小写)  指定 HTTP 请求的代理
-curl -x socks5://james:cats@myproxy.com:8080 https://www.example.com
-</code></pre>
-<pre><code class="language-shell">-u  设置服务器认证的用户名和密码
-curl -u 'bob:12345' https://google.com/login
-</code></pre>
-<pre><code class="language-shell">-O  将服务器回应保存成文件，并将 URL 的最后部分当作文件名
-curl -O https://www.example.com/foo/bar.html
-</code></pre>
-<pre><code class="language-shell">--limit-rate    限制 HTTP 请求和回应的带宽，模拟慢网速的环境
-curl --limit-rate 200k https://www.google.com
-每秒200KB
-</code></pre>
-<pre><code class="language-shell">-H  添加 HTTP 请求的标头
-  curl -H 'Accept-Language: en-US' -H 'Secret-Message: xyzzy' https://google.com
-</code></pre>
-<pre><code class="language-shell">-G  构造 URL 的查询字符串
-curl -G -d 'q=kitties' -d 'count=20' https://google.com/search
+wget --no-check-certificate -O AutoReinstall.sh https://git.io/AutoReinstall.sh &amp;&amp; bash AutoReinstall.sh
 
-上面命令会发出一个 GET 请求，实际请求的 URL 为
-https://google.com/search?q=kitties&amp;count=20 如果省略-G，会发出一个 POST 请求
-</code></pre>
-<pre><code class="language-shell">-F  向服务器上传二进制文件
+apt update&amp;&amp;apt install -y vim curl screen ca-certificates git wget vnstat jq
 
-curl -F 'file=@photo.png' https://google.com/profile
-上面命令会给 HTTP 请求加上标头Content-Type: multipart/form-data，然后将文件photo.png作为file字段上传
+city=$(curl -s  https://api.ip.sb/geoip | jq '.city')
+city=${city#*\&quot;}
+city=${city%\&quot;*}
+ip=$(curl -s  https://api.ip.sb/ip)
+ip=${ip//./-}
+organization=$(curl -s  https://api.ip.sb/geoip | jq '.organization')
+organization=${organization#* }
+organization=${organization%\&quot;*}
+organization=${organization%.*}
+newhostname=$organization&quot;-&quot;$city&quot;-&quot;$ip
+hostnamectl set-hostname $newhostname
 
--F  可以指定 MIME 类型
-curl -F 'file=@photo.png;type=image/png' https://google.com/profile
+sed -i 's/#Port 22/Port 9233/g' /etc/ssh/sshd_config
+service sshd restart
 
--F  也可以指定文件名
-curl -F 'file=@photo.png;filename=me.png' https://google.com/profile
+wget -N --no-check-certificate &quot;https://github.000060000.xyz/tcpx.sh&quot; &amp;&amp; chmod +x tcpx.sh &amp;&amp; ./tcpx.sh
+0 9 7 13 22
 
-上面命令中，原始文件名为photo.png，但是服务器接收到的文件名为me.png。
-</code></pre>
-<pre><code class="language-shell">-d  用于发送 POST 请求的数据体
-curl -d'login=emma＆password=123'-X POST https://google.com/login
-curl -d 'login=emma' -d 'password=123' -X POST  https://google.com/login
+wget &quot;https://github.com/hddcn/jiasu/raw/master/jiasu.sh&quot; &amp;&amp; chmod +x jiasu.sh &amp;&amp; ./jiasu.sh
 
-使用-d参数以后，HTTP 请求会自动加上标头Content-Type : application/x-www-form-urlencoded
-并且会自动将请求转为 POST 方法，因此可以省略-X POST
+wget -N --no-check-certificate -q -O install.sh &quot;https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/master/install.sh&quot; &amp;&amp; chmod +x install.sh &amp;&amp; bash install.sh
 
--d  可以读取本地文本文件的数据，向服务器发送。
-curl -d '@data.txt' https://google.com/login
-</code></pre>
-<pre><code class="language-shell">-L  让 HTTP 请求跟随服务器的重定向     curl 默认不跟随重定向
-curl -L -d 'tweet=hi' https://api.twitter.com/tweet
-</code></pre>
-<pre><code class="language-shell">-s  不显示统计信息
-curl -s ip.gs
+bash &lt;(curl -s -L https://git.io/v2ray.sh)
+
+apt-get -y install build-essential
+wget https://github.com/jedisct1/libsodium/releases/download/1.0.18-RELEASE/libsodium-1.0.18.tar.gz
+tar xf libsodium-1.0.18.tar.gz &amp;&amp; cd libsodium-1.0.18
+./configure &amp;&amp; make -j2 &amp;&amp; make install
+ldconfig
+cd ~
+
+wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
+chmod +x shadowsocks-all.sh
+./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log
+4
+17316
+14
+
+
 </code></pre>
                 
               
