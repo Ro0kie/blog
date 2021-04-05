@@ -536,6 +536,10 @@ FROM ubuntu
 RUN  sed -i s@/security.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list\
     &amp;&amp;sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 
+FROM debian
+RUN sed -i &quot;s@/deb.debian.org/@/mirrors.aliyun.com/@g&quot; /etc/apt/sources.list\
+    &amp;&amp; sed -i &quot;s@/security.debian.org/@/mirrors.aliyun.com/@g&quot; /etc/apt/sources.list\
+
 #列出虚悬镜像
 docker image ls -f dangling=true
 
