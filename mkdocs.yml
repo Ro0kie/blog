@@ -2,7 +2,6 @@ site_name: rrrrrrrr coding blog
 
 theme: 
   name: material
-  custom_dir: overrides
   palette:
     primary: indigo
 
