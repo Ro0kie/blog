@@ -1,18 +1,20 @@
 name: deploy_mkdocs_on_github_pages
+
 on:
   push:
     branches:
       - main
-      
+
 jobs:
   build:
     name: Deploy docs
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main
+      - name: checkout
         uses: actions/checkout@v4
-      - name: Deploy docs
+
+      - name: deploy
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        # Or use mhausenblas/mkdocs-deploy-gh-pages@nomaterial to build without the mkdocs-material theme
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EXTRA_PACKAGES: build-base
