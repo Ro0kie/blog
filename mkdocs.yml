@@ -10,4 +10,4 @@ markdown_extensions:
 
 plugins:
   - search:
-      lang: zh-Hans
+      lang: ja
